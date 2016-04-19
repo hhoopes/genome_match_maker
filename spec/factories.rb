@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :researcher do
+    contact_name "MyString"
+    organization "MyString"
+    email "MyString"
+    description "MyString"
+  end
   factory :user do
     email "MyString"
     uid "MyString"

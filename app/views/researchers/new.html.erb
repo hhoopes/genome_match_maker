@@ -1,0 +1,18 @@
+<section class="user-creation">
+  <h1>Create Researcher Account</h1>
+
+  <%= form_for @researcher do |f| %>
+     <div class="form-group">
+       <%= f.label :contact_name %>
+       <%= f.text_field :contact_name, class: "form-control" %>
+       <%= f.label :organization %>
+       <%= f.text_field :organization, class: "form-control" %>
+       <%= f.label :email %>
+       <%= f.text_field :email, class: "form-control" %>
+       <%= f.label :description %>
+       <%= f.text_field :description, class: "form-control" %>
+     </div>
+
+     <%= f.submit "Create Researcher Account" %>
+   <% end %>
+</section>
