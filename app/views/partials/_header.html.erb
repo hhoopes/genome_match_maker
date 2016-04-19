@@ -1,0 +1,26 @@
+<header>
+  <div class="navbar navbar-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to "23andMe Genetic Explorer", root_path %>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path %></li>
+
+          <% if current_user %>
+            <li class ="navbar-text"> <%= "Welcome," + current_user.first_name %></li>
+            <li><%#= link_to "Logout", logout_path, method: :delete %></li>
+
+          <% else %>
+            <li><%= link_to "How it works", root_path %></li>
+            <li><%= link_to "Stories", root_path %></li>
+            <li><%= link_to "Research", root_path %></li>
+            <li><%= link_to "Buy", root_path %></li>
+            <li><%= link_to "Sign in with 23andMe", "https://api.23andme.com/authorize/?redirect_uri=http://localhost:3000/auth/and_me/callback&response_type=code&client_id=fa14c16e8d247c33723730c697802dd9&scope=basic%20ancestry%20email%20haplogroups%20names%20profile:read%20profile:write" %></li>
+
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

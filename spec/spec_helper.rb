@@ -42,6 +42,15 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  def token_response
+    {
+      "access_token"=>"e2593d8f86166a583507e69373684dcc",
+      "token_type"=>"bearer",
+      "expires_in"=>86400,
+      "refresh_token"=>"d1ce2147eec93e11128a92bc1ab14514",
+      "scope"=>"profile:write haplogroups names ancestry basic email profile:read"}
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
