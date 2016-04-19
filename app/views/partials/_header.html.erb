@@ -12,7 +12,7 @@
             <li><%#= link_to "Logout", logout_path, method: :delete %></li>
 
           <% else %>
-            <li><%= link_to "Sign in with 23andMe", "https://api.23andme.com/authorize/?redirect_uri=http://localhost:3000/auth/and_me/callback&response_type=code&client_id=fa14c16e8d247c33723730c697802dd9&scope=basic%20ancestry%20email%20haplogroups%20names%20profile:read%20profile:write" %></li>
+            <li><%= link_to "Sign in with 23andMe", "https://api.23andme.com/authorize/?redirect_uri=http://localhost:3000/auth/and_me/callback&response_type=code&client_id=" + client_id + "&scope=basic%20ancestry%20email%20haplogroups%20names%20profile:read%20profile:write" %></li>
 
           <% end %>
         </ul>
