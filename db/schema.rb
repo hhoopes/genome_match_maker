@@ -11,20 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419121722) do
+ActiveRecord::Schema.define(version: 20160419231523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "uid"
+  create_table "participant_credentials", force: :cascade do |t|
     t.string   "access_token"
     t.string   "refresh_token"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "uid"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "user_id"
   end
 
+  add_index "participant_credentials", ["user_id"], name: "index_participant_credentials_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "participant_credentials", "users"
 end

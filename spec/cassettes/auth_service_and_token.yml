@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.23andme.com/token
+    body:
+      encoding: US-ASCII
+      string: client_id=fa14c16e8d247c33723730c697802dd9&client_secret=0ff970b94a7ccdd3f44f5490787ea788&grant_type=authorization_code&code=48deb47b3a030ab6e63e2e946b64a73f&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fand_me%2Fcallback&scope=basic+haplogroups+email+ancestry+names+profile%3Aread+profile%3Awrite
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.23andme.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 20 Apr 2016 03:48:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d01448614f2ab5a531720cf05561c6bf31461124137; expires=Thu, 20-Apr-17
+        03:48:57 GMT; path=/; domain=.23andme.com; HttpOnly
+      Vary:
+      - Cookie
+      Cache-Control:
+      - no-store
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 29659fa1c834261d-DFW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token": "2c50d9a1c7e0736c68b686d512d58c47", "token_type":
+        "bearer", "expires_in": 86400, "refresh_token": "afb1aaa75da46eaa9ea3630cf21117a2",
+        "scope": "profile:write haplogroups names ancestry basic email profile:read"}'
+    http_version: 
+  recorded_at: Wed, 20 Apr 2016 03:48:57 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer
+  response:
+    status:
+      code: 301
+      message: MOVED PERMANENTLY
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 20 Apr 2016 03:49:14 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e9145525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d935274af060c181232224dd704956e8b1461124153; expires=Thu, 20-Apr-17
+        03:49:13 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Location:
+      - https://api.23andme.com/1/user/
+      Cf-Ray:
+      - 2965a00a3de31fbe-DFW
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 20 Apr 2016 03:49:14 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/user/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer
+      Cookie:
+      - __cfduid=d935274af060c181232224dd704956e8b1461124153; NSC_bqj-wjq-ttm=ffffffff09090e9145525d5f4f58455e445a4a42378b;path=/;secure;httponly
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 20 Apr 2016 03:49:14 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 2965a00d170b2012-DFW
+    body:
+      encoding: UTF-8
+      string: '{"error_description": "Invalid token specified.", "error": "invalid_token"}'
+    http_version: 
+  recorded_at: Wed, 20 Apr 2016 03:49:14 GMT
+recorded_with: VCR 3.0.1
