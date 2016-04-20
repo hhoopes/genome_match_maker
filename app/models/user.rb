@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   def self.find_or_create_from_auth(user_info)
-    binding.pry
     where(email: user_info[:email]).first_or_create do |user|
       user.first_name   = user_info[:first_name]
       user.last_name    = user_info[:last_name]
