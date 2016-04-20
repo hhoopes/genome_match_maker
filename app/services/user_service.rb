@@ -1,5 +1,4 @@
 class UserService < AndMeApiService
-
   def and_me_id
     response = get("/user")
     response["id"]
