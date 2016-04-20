@@ -9,6 +9,10 @@ development:
   <<: *default
   database: genome_match_maker_development
 
+test:
+  <<: *default
+  database: genome_match_maker_development
+
 production:
   <<: *default
   database: genome_match_maker_production
