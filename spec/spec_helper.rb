@@ -54,4 +54,8 @@ RSpec.configure do |config|
   def valid_token
     ENV["ACCESS_TOKEN"]
   end
+
+  def log_in(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
 end
