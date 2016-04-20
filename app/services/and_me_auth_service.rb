@@ -20,7 +20,7 @@ class AndMeAuthService
         "client_secret"     => ENV["and_me_secret"],
         "grant_type"        => "authorization_code",
         "code"              => code,
-        "redirect_uri"      => "http://localhost:3000/auth/and_me/callback",
+        "redirect_uri"      => ENV["callback_host"],
         "scope"             => "basic haplogroups email ancestry names profile:read profile:write",
       }
     end
