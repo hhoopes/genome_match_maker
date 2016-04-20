@@ -11,6 +11,7 @@ RSpec.describe User, type: :model do
       }
       expect(User.count).to eq(0)
       User.find_or_create_from_auth(user_info)
+      
       expect(User.count).to eq(1)
       expect(User.first.first_name).to eq(user_info[:first_name])
       expect(User.first.last_name).to eq(user_info[:last_name])

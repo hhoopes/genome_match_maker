@@ -1,0 +1,21 @@
+<section class="researcher-creation">
+  <%= form_for(@researcher, url: researcher_signup_path) do |f| %>
+    <div class="form-group">
+      <p><%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "" %>
+      <p><%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "" %>
+      <p><%= f.label :email %>
+      <%= f.text_field :email, class: "" %>
+      <p><%= f.label :password %>
+      <%= f.password_field :password, class: "" %>
+      <%= fields_for :researcher_credential do | u | %>
+        <p><%= u.label :organization %>
+        <%= u.text_field :organization %>
+        <p><%= u.label :description %>
+        <%= u.text_area :description %>
+      <% end %>
+      <p><%= f.submit "Create Researcher Account" %>
+    </div>
+  <% end %>
+</section>
