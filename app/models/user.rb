@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
       user.first_name   = user_info[:first_name]
       user.last_name    = user_info[:last_name]
       user.email        = user_info[:email]
-      user.password_digest     = ENV["DEFAULT_PASSWORD"]
+      user.password     = ENV["DEFAULT_PASSWORD"]
     end
   end
 end
