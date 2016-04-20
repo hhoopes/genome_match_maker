@@ -1,7 +1,7 @@
 class AndMeApiService
   attr_reader :host, :current_user, :post_headers
 
-  def initialize(token, current_user = current_user)
+  def initialize(token, current_user = nil)
     @current_user = current_user
     @host = "https://api.23andme.com/1"
     @headers = { "Authorization" => "Bearer #{token}" }
