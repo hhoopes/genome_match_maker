@@ -16,8 +16,8 @@ class AndMeAuthService
   private
     def self.token_params(code)
       {
-        "client_id"         => ENV["23_and_me_id"],
-        "client_secret"     => ENV["23_and_me_secret"],
+        "client_id"         => ENV["and_me_id"],
+        "client_secret"     => ENV["nd_me_secret"],
         "grant_type"        => "authorization_code",
         "code"              => code,
         "redirect_uri"      => "http://localhost:3000/auth/and_me/callback",
