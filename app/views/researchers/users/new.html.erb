@@ -7,8 +7,8 @@
       <%= f.text_field :last_name, class: "" %>
       <p><%= f.label :email %>
       <%= f.text_field :email, class: "" %>
-      <p><%= f.label :password_digest, "Password" %>
-      <%= f.password_field :password_digest, class: "" %>
+      <p><%= f.label :password, "Password" %>
+      <%= f.password_field :password, class: "" %>
       <%= fields_for :researcher_credential do | u | %>
         <p><%= u.label :organization %>
         <%= u.text_field :organization %>
