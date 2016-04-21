@@ -1,16 +1,18 @@
 <div class="container">
   <h1 class="text-center">Welcome to Genome Match Maker</h1>
-  <div class="signup-participant col-md-6">
-    <p class="text-center"><%= link_to "I am a participant",
-      "https://api.23andme.com/authorize/?redirect_uri=" + callback_host + "&response_type=code&client_id=" + client_id + "&scope=basic%20ancestry%20email%20haplogroups%20names%20profile:read%20profile:write" %></p>
-    <p class="text-center">Sign in through 23 and Me</p>
-  </div>
-  <div class="signup-researcher col-md-6">
-    <p class="text-center"><%= link_to "I am a researcher", new_researchers_user_path %></p>
-  </div>
-  <div class="login col-md-12">
-    <p class="text-center">
-      <%= link_to "I already have an account", login_path %>
-    </p>
-  </div>
+  <% unless current_user %>
+    <div class="signup-participant col-md-6">
+      <p class="text-center"><%= link_to "I am a participant",
+        "https://api.23andme.com/authorize/?redirect_uri=" + callback_host + "&response_type=code&client_id=" + client_id + "&scope=basic%20ancestry%20email%20haplogroups%20names%20profile:read%20profile:write" %></p>
+      <p class="text-center">Sign in with 23andMe</p>
+    </div>
+    <div class="signup-researcher col-md-6">
+      <p class="text-center"><%= link_to "I am a researcher", new_researchers_user_path %></p>
+    </div>
+    <div class="login col-md-12">
+      <p class="text-center">
+        <%= link_to "Log in with existing account", login_path %>
+      </p>
+    </div>
+  <% end %>
 </div>

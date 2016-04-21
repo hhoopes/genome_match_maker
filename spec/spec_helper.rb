@@ -56,6 +56,9 @@ RSpec.configure do |config|
   end
 
   def log_in(user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit login_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Login"
   end
 end

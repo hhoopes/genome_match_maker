@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root to: "static_pages#landing"
   get "/auth/and_me/callback", to: "participant/users#create"
   delete "/logout", to: "sessions#destroy"
-  get "login", to: "sessions#new"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 
   namespace :researchers do
     resources :users, only: [:new, :index, :show]
