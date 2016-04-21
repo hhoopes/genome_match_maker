@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_one :participant_credential, dependent: :destroy
   has_one :researcher_credential, dependent: :destroy
+  validates :email, presence: true
 
   def self.find_or_create_from_auth(user_info)
     where(email: user_info[:email]).first_or_create do |user|
