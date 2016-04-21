@@ -1,6 +1,8 @@
 FactoryGirl.define do
-  factory :researcher_credential do
+  factory :researcher, class: ResearcherCredential do
     description "MyString"
+    organization "MyOrganization"
+    user
   end
   factory :participant_credential do
     access_token "MyString"
