@@ -1,0 +1,18 @@
+<div class="container researcher">
+  <h1> <%= "Welcome, " + @user.full_name %></h1>
+
+  <h2>Your Studies</h2>
+  <%= link_to "Create new study", new_researcher_study_path %>
+
+  <% if @studies %>
+    <% @studies.each do | study | %>
+      <div class="study-<%= study.id %>">
+        <p><%= study.name %> </p>
+        <p><%= study.description %> </p>
+        <p> <% study.snps.each do |snp| %>
+          SNP Location: <%= snp.snp_value.location + " (#{snp.snp_value.base_pair})" %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-class Researchers::UsersController < ApplicationController
+class Researcher::UsersController < ApplicationController
   def new
     @researcher = User.new
     @researcher.build_researcher_credential
@@ -14,6 +14,10 @@ class Researchers::UsersController < ApplicationController
       flash.now["error"] = @researcher.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = current_user
   end
 
   private

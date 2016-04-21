@@ -5,10 +5,10 @@ class Participant::UsersController < ApplicationController
     user = User.find_or_create_from_auth(user_info)
     user.participant_credential = ParticipantCredential.find_or_create_from_auth(token_hash, user_info)
 
-    if user.save && user.participant_credential.save 
+    if user.save && user.participant_credential.save
       session[:user_id] = user.id
     end
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def destroy

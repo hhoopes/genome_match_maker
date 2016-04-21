@@ -8,7 +8,7 @@
           <li><%= link_to "Home", root_path %></li>
 
           <% if current_user %>
-            <li class ="navbar-text"> <%= "Welcome, " + current_user.first_name + " " + current_user.last_name %></li>
+            <li class ="navbar-text"> <%= "Welcome, " + current_user.full_name %></li>
             <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
           <% end %>
         </ul>
