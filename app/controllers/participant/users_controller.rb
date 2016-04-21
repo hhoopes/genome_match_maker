@@ -6,7 +6,7 @@ class Participant::UsersController < ApplicationController
     credentials.user = User.find_or_create_from_auth(user_info)
     user = credentials.user
 
-    if user
+    if user.save
       session[:user_id] = user.id
     end
     redirect_to root_path
