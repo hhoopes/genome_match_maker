@@ -5,7 +5,7 @@ feature "Visitor logs in" do
     user = create(:user, password: "password")
 
     visit "/"
-    expect(page).not_to have_content("Welcome, #{user.first_name}")
+    expect(page).not_to have_content("Welcome, #{user.full_name}")
     expect(page).to have_content("Sign in with 23andMe")
 
     click_on "Log in with existing account"
@@ -16,7 +16,7 @@ feature "Visitor logs in" do
     click_on "Login"
 
     expect(current_path).to eq("/dashboard")
-    expect(page).to have_content("Welcome, #{user.first_name}")
+    expect(page).to have_content("Welcome, #{user.full_name}")
   end
 
   scenario "wrong password rerenders login page" do

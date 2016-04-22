@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420153436) do
+ActiveRecord::Schema.define(version: 20160421154109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,34 @@ ActiveRecord::Schema.define(version: 20160420153436) do
 
   add_index "researcher_credentials", ["user_id"], name: "index_researcher_credentials_on_user_id", using: :btree
 
+  create_table "snp_values", force: :cascade do |t|
+    t.string   "base_pair"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "snps", force: :cascade do |t|
+    t.string   "snppable_type"
+    t.integer  "snppable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "snp_value_id"
+  end
+
+  add_index "snps", ["snp_value_id"], name: "index_snps_on_snp_value_id", using: :btree
+  add_index "snps", ["snppable_id"], name: "index_snps_on_snppable_id", using: :btree
+
+  create_table "studies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "studies", ["user_id"], name: "index_studies_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -48,4 +76,6 @@ ActiveRecord::Schema.define(version: 20160420153436) do
 
   add_foreign_key "participant_credentials", "users"
   add_foreign_key "researcher_credentials", "users"
+  add_foreign_key "snps", "snp_values"
+  add_foreign_key "studies", "users"
 end

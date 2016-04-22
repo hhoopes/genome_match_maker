@@ -17,6 +17,6 @@ feature "Visitor can register as researcher" do
     click_on "Create Researcher Account"
 
     expect(page).to have_content("Welcome, Sally Researcher")
-    expect(current_path).to eq("/dashboard")
+    expect(current_path).to eq(dashboard_path)
   end
 end

@@ -1,0 +1,29 @@
+<h1>Create a New Research Study</h1>
+
+<div class="study-creation">
+  <%= form_for(@study, url: researcher_studies_path) do |f| %>
+    <p><%= f.label :name, "Name of Study" %>
+    <%= f.text_field :name %></p>
+
+    <p><%= f.label :description %>
+    <%= f.text_field :description %></p>
+
+      <%= f.fields_for :snps do |snp_form| %>
+        <%= snp_form.hidden_field :snppable_type, value: "study" %>
+
+        <%= snp_form.fields_for :snp_value do |snp_value_form| %>
+          <p>
+            <%= snp_value_form.label :location, "SNP Location" %>
+            <%= snp_value_form.text_field :location, id: "snp-location-1", title: "The location of the SNP, e.g., rs3094315 or i3000001" %>
+          </p>
+
+          <p>
+            <%= snp_value_form.label :base_pair, "Base Pairs" %>
+            <%= snp_value_form.text_field :base_pair, id: "snp-bp-1", title: 'The base pairs you are expecting at the location, e.g. "AA", "II" for insertion' %>
+          </p>
+        <% end %>
+      <% end %>
+
+    <p> <%= f.submit "Submit new study" %></p>
+  <% end %>
+</div>
