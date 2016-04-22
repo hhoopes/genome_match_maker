@@ -1,5 +1,6 @@
 class SnpValue < ActiveRecord::Base
   has_many :snps
+  belongs_to :location
   has_many :studies, through: :snps
-  validates_uniqueness_of :location, scope: :base_pair
+  accepts_nested_attributes_for :location
 end
