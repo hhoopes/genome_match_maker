@@ -23,9 +23,4 @@ class AndMeApiService
   def prepare_params(params)
     JSON.generate(params)
   end
-
-  private
-    def parse(json_string)
-      JSON.parse(json_string, symbolize_names: true)
-    end
 end
