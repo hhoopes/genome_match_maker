@@ -13,10 +13,11 @@
 
         <%= snp_form.fields_for :snp_value do |snp_value_form| %>
           <p>
-            <%= snp_value_form.label :location, "SNP Location" %>
-            <%= snp_value_form.text_field :location, id: "snp-location-1", title: "The location of the SNP, e.g., rs3094315 or i3000001" %>
-          </p>
-
+            <%= snp_value_form.fields_for :location do | location_form | %>
+              <p>location_form.label :position, "SNP Location" %>
+              <%= location_form.text_field :position, id: "snp-location-1", title: "The location of the SNP, e.g., rs3094315 or i3000001" %>
+              </p>
+            <% end %>
           <p>
             <%= snp_value_form.label :base_pair, "Base Pairs" %>
             <%= snp_value_form.text_field :base_pair, id: "snp-bp-1", title: 'The base pairs you are expecting at the location, e.g. "AA", "II" for insertion' %>

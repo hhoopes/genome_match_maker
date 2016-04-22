@@ -10,7 +10,7 @@
         <p><%= study.name %> </p>
         <p><%= study.description %> </p>
         <p> <% study.snps.each do |snp| %>
-          SNP Location: <%= snp.snp_value.location + " (#{snp.snp_value.base_pair})" %>
+          SNP Location: <%= snp.snp_value.location.position + " (#{snp.snp_value.base_pair})" %>
       </div>
       <% end %>
     <% end %>

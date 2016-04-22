@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421154109) do
+ActiveRecord::Schema.define(version: 20160422135545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "participant_credentials", force: :cascade do |t|
     t.string   "access_token"
@@ -39,10 +45,12 @@ ActiveRecord::Schema.define(version: 20160421154109) do
 
   create_table "snp_values", force: :cascade do |t|
     t.string   "base_pair"
-    t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "location_id"
   end
+
+  add_index "snp_values", ["location_id"], name: "index_snp_values_on_location_id", using: :btree
 
   create_table "snps", force: :cascade do |t|
     t.string   "snppable_type"
@@ -76,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160421154109) do
 
   add_foreign_key "participant_credentials", "users"
   add_foreign_key "researcher_credentials", "users"
+  add_foreign_key "snp_values", "locations"
   add_foreign_key "snps", "snp_values"
   add_foreign_key "studies", "users"
 end

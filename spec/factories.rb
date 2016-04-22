@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :location do
+    position "MyString"
+  end
   factory :snp_value do
     base_pair "MyString"
     location "MyString"
