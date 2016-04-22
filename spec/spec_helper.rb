@@ -51,6 +51,14 @@ RSpec.configure do |config|
       "scope"=>"profile:write haplogroups names ancestry basic email profile:read"}
   end
 
+  def token_hash
+    {:refresh_token=>"98691b885b815696a64e86c6d2813a05", :access_token=> valid_token}
+  end
+
+  def auth_response
+    {"code"=>"9766a203b1275288e09bc99f78981659", "controller"=>"participant/users", "action"=>"create"}
+  end
+
   def valid_token
     ENV["ACCESS_TOKEN"]
   end

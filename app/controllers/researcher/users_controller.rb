@@ -15,11 +15,7 @@ class Researcher::UsersController < ApplicationController
       render :new
     end
   end
-
-  def show
-    @user = current_user
-  end
-
+  
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password)
@@ -28,5 +24,4 @@ class Researcher::UsersController < ApplicationController
     def researcher_credential_params
       params.require(:researcher_credential).permit(:description, :organization)
     end
-
 end

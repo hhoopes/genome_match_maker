@@ -7,12 +7,9 @@ class Participant::UsersController < ApplicationController
 
     if user.save && user.participant_credential.save
       session[:user_id] = user.id
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
     end
-    redirect_to dashboard_path
-  end
-
-  def destroy
-    session.clear
-    redirect_to root_path
   end
 end
