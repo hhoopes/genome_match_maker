@@ -9,7 +9,6 @@ class Researcher::StudiesController < ApplicationController
     @researcher.studies << Study.new(study_params)
     @study = Study.last
     if @study.save
-      binding.pry
       redirect_to dashboard_path
     end
   end
