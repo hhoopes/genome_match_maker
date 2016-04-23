@@ -3,7 +3,7 @@
   <% unless current_user %>
     <div class="signup-participant col-md-6">
       <p class="text-center"><%= link_to "I am a participant",
-        "https://api.23andme.com/authorize/?redirect_uri=" + callback_host + "&response_type=code&client_id=" + client_id + "&scope=basic%20ancestry%20email%20haplogroups%20names%20profile:read%20profile:write" %></p>
+        "https://api.23andme.com/authorize/?redirect_uri=" + callback_host + "&response_type=code&client_id=" + client_id + "&scope=basic%20names%20email%20genomes" %></p>
       <p class="text-center">Sign in with 23andMe</p>
     </div>
     <div class="signup-researcher col-md-6">

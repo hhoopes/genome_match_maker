@@ -1,5 +1,6 @@
 class Participant::UsersController < ApplicationController
   def create
+    binding.pry
     token_hash = AndMeAuthService.get_token(params[:code])
     user_info = AndMeAuthService.get_user_info(token_hash[:access_token])
     user = User.find_or_create_from_auth(user_info)

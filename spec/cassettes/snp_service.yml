@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs3094315
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 35f25c3211be51d4bfb5a0fd67f42ec0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 24 Apr 2016 01:10:32 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '45'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=deb6773224f8cc908e396d7d79723ec271461460232; expires=Mon, 24-Apr-17
+        01:10:32 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 2985ad167789263b-DFW
+    body:
+      encoding: UTF-8
+      string: '{"rs3094315": "AA", "id": "b9e65773cfcdadfd"}'
+    http_version: 
+  recorded_at: Sun, 24 Apr 2016 01:10:32 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=garbage
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 35f25c3211be51d4bfb5a0fd67f42ec0
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 24 Apr 2016 01:10:33 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '73'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e9045525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d4e045e739beb83ccefdf982ab70b85881461460233; expires=Mon, 24-Apr-17
+        01:10:33 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 2985ad19010d2030-DFW
+    body:
+      encoding: UTF-8
+      string: '{"error_description": "Invalid SNP: garbage", "error": "invalid_request"}'
+    http_version: 
+  recorded_at: Sun, 24 Apr 2016 01:10:33 GMT
+recorded_with: VCR 3.0.1

@@ -1,18 +1,22 @@
 <div class="container researcher">
-  <h1> <%= "Welcome, " + @user.full_name %></h1>
+  <h1>"Researcher Dashboard</h1>
 
   <h2>Your Studies</h2>
   <%= link_to "Create new study", new_researcher_study_path %>
 
-  <% if @studies %>
+  <% if @studies.empty? %>
+    <p>
+      We're sorry, no researchers have created studies at this time that match with your genome.
+    </p>
+  <% else %>
     <% @studies.each do | study | %>
       <div class="study-<%= study.id %>">
         <p><%= study.name %> </p>
         <p><%= study.description %> </p>
         <p> <% study.snps.each do |snp| %>
           SNP Location: <%= snp.snp_value.location.position + " (#{snp.snp_value.base_pair})" %>
+        <% end %>
       </div>
-      <% end %>
     <% end %>
   <% end %>
 </div>
