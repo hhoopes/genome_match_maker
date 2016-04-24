@@ -11,7 +11,7 @@ development:
 
 test:
   <<: *default
-  database: genome_match_maker_development
+  database: genome_match_maker_test
 
 production:
   <<: *default
