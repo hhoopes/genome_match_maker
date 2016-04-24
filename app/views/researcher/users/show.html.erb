@@ -1,13 +1,13 @@
 <div class="container researcher">
-  <h1>"Researcher Dashboard</h1>
+  <h1>Researcher Dashboard</h1>
 
   <h2>Your Studies</h2>
   <%= link_to "Create new study", new_researcher_study_path %>
 
   <% if @studies.empty? %>
-    <p>
-      We're sorry, no researchers have created studies at this time that match with your genome.
-    </p>
+  <p>
+    We're sorry, no researchers have created studies at this time that match with your genome.
+  </p>
   <% else %>
     <% @studies.each do | study | %>
       <div class="study-<%= study.id %>">
