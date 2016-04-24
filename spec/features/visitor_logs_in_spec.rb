@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Visitor logs in" do
   scenario "user is redirected to dashboard" do
-    user = create(:user, password: "password")
+    user = create(:participant, password: "password")
 
     visit "/"
     expect(page).not_to have_content("Welcome, #{user.full_name}")

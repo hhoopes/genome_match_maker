@@ -48,7 +48,7 @@ RSpec.configure do |config|
       "token_type"=>"bearer",
       "expires_in"=>86400,
       "refresh_token"=>"sample_refresh_token",
-      "scope"=>"profile:write haplogroups names ancestry basic email profile:read"}
+      "scope"=>"basic email genomes"}
   end
 
   def token_hash
@@ -68,5 +68,11 @@ RSpec.configure do |config|
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_on "Login"
+  end
+
+  def generated_snp(position, base_pair, snppable_type)
+    location = Location.where(position: position).first_or_create
+    location.snp_values << SnpValue.where(base_pair: base_pair, location_id: location.id).first_or_create
+    create(:snp, snppable_type: snppable_type, snp_value: SnpValue.last)
   end
 end

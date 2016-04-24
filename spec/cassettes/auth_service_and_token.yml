@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.23andme.com/token
     body:
       encoding: US-ASCII
-      string: client_id=fa14c16e8d247c33723730c697802dd9&client_secret=0ff970b94a7ccdd3f44f5490787ea788&grant_type=authorization_code&code=117311b1980c7626e5020a943f2fa0d7&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fand_me%2Fcallback&scope=basic+haplogroups+email+ancestry+names+profile%3Aread+profile%3Awrite
+      string: client_id=fa14c16e8d247c33723730c697802dd9&client_secret=0ff970b94a7ccdd3f44f5490787ea788&grant_type=authorization_code&code=552ba8a755ed4878afcd567230b0141b&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fand_me%2Fcallback&scope=basic+email+genomes+names
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Fri, 22 Apr 2016 05:49:59 GMT
+      - Sun, 24 Apr 2016 01:10:15 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - NSC_bqj-wjq-ttm=ffffffff09090e9045525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - __cfduid=d8978acee6dfbbe53d0e69a3842c121651461304199; expires=Sat, 22-Apr-17
-        05:49:59 GMT; path=/; domain=.23andme.com; HttpOnly
+      - NSC_bqj-wjq-ttm=ffffffff09090e6f45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d2cd0ad9d52ef7af42d4a24808b7fb6b31461460215; expires=Mon, 24-Apr-17
+        01:10:15 GMT; path=/; domain=.23andme.com; HttpOnly
       Vary:
       - Cookie
       Cache-Control:
@@ -43,12 +43,12 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Cf-Ray:
-      - 2976cbac2ad8263b-DFW
+      - 2985acab35040968-DFW
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token": "25eb2fbf3e7ee4f14665a924ea9bd385", "token_type":
-        "bearer", "expires_in": 86400, "refresh_token": "64905f443caed5c975450c912e6e1791",
-        "scope": "profile:write haplogroups names ancestry basic email profile:read"}'
+      string: '{"access_token": "24f5626889e59fe2534317870a0c7464", "token_type":
+        "bearer", "expires_in": 86400, "refresh_token": "b176f8c06ad03e2f63a3ef84c6c05a6d",
+        "scope": "basic names email genomes"}'
     http_version: 
-  recorded_at: Fri, 22 Apr 2016 05:49:59 GMT
+  recorded_at: Sun, 24 Apr 2016 01:10:15 GMT
 recorded_with: VCR 3.0.1

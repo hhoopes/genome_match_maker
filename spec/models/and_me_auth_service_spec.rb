@@ -5,7 +5,7 @@ RSpec.describe AndMeAuthService do
     it "gets tokens back" do
 
       VCR.use_cassette("auth service and token") do
-        code = "117311b1980c7626e5020a943f2fa0d7"
+        code = "552ba8a755ed4878afcd567230b0141b"
         response = AndMeAuthService.get_token(code)
 
         expect(response[:refresh_token]).not_to be_nil

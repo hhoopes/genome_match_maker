@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   namespace :participants do
   end
 
+  resources :studies, only: [:show]
+  
   get "/dashboard", to: "users#show"
   post "/researcher_signup", to: "researcher/users#create"
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "researcher creates new study" do
   scenario "and they see their new study on their dashboard" do
-    researcher = create(:researcher).user
+    researcher = create(:researcher)
     log_in(researcher)
 
     visit dashboard_path
@@ -23,10 +23,9 @@ feature "researcher creates new study" do
 
     study = Study.last
     expect(current_path).to eq(dashboard_path)
-
     expect(page).to have_content("Your Studies")
 
-    within("div.study-1") do
+    within("div.study-#{study.id}") do
       expect(page).to have_content("ADHD Genetic Research Study")
       expect(page).to have_content(study.description)
       expect(page).to have_content("rs3094315")

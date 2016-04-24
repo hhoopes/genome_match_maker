@@ -1,0 +1,10 @@
+<h1>Participant Dashboard</h1>
+
+<h2>Your Research Studies</h2>
+  <% @matches.each do | match | %>
+    <p><%= link_to match.name, study_path(match) %>
+    <p><%= match.user.researcher_credential.organization %>
+    <p><%= match.description %>
+    <p>Based on your value of "<%= match.snps.first.snp_value.base_pair %>"
+      at the <%= match.snps.first.snp_value.location.position %> position.
+  <% end %>

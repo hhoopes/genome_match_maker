@@ -4,26 +4,37 @@ FactoryGirl.define do
   end
   factory :snp_value do
     base_pair "MyString"
-    location "MyString"
-    snp nil
   end
   factory :snp do
-    snp_type "MyString"
+    snppable_type "user"
     snppable_id "MyString"
   end
   factory :study do
-    name "MyString"
+    sequence(:name) { | n| "Mitosis in Squirrels and Humans #{n}" }
     description "MyString"
   end
-  factory :researcher, class: ResearcherCredential do
-    description "MyString"
-    organization "MyOrganization"
-    user
+  factory :researcher, class: User do
+    first_name { Faker::Name.first_name }
+    last_name  { Faker::Name.last_name + ", PhD" }
+    password "MyString"
+    email { Faker::Internet.safe_email }
+    researcher_credential
+  end
+  factory :researcher_credential do
+    description "this stuff"
+    organization { Faker::University.name }
+  end
+  factory :participant, class: User do
+    first_name "MyString"
+    last_name "MyString"
+    password "MyString"
+    email "MyString"
+    participant_credential
   end
   factory :participant_credential do
-    access_token "MyString"
+    access_token ENV["ACCESS_TOKEN"]
     refresh_token "MyString"
-    uid "MyString"
+    uid "b9e65773cfcdadfd"
   end
   factory :user do
     first_name "MyString"
