@@ -4,7 +4,7 @@ RSpec.describe ParticipantCredential, type: :model do
   it { should belong_to (:user) }
   it {should validate_uniqueness_of (:uid)}
 
-  describe "find_or_create_with_auth" do
+  describe "find_or_create_from_auth" do
     it "creates a new participant_credentials from token_hash and user_info" do
       user_info = { uid: "a326bal320"
       }

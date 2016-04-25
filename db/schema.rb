@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422135545) do
+ActiveRecord::Schema.define(version: 20160425185550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,16 @@ ActiveRecord::Schema.define(version: 20160422135545) do
 
   add_index "studies", ["user_id"], name: "index_studies_on_user_id", using: :btree
 
+  create_table "study_participations", force: :cascade do |t|
+    t.integer  "study_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "study_participations", ["study_id"], name: "index_study_participations_on_study_id", using: :btree
+  add_index "study_participations", ["user_id"], name: "index_study_participations_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -87,4 +97,6 @@ ActiveRecord::Schema.define(version: 20160422135545) do
   add_foreign_key "snp_values", "locations"
   add_foreign_key "snps", "snp_values"
   add_foreign_key "studies", "users"
+  add_foreign_key "study_participations", "studies"
+  add_foreign_key "study_participations", "users"
 end

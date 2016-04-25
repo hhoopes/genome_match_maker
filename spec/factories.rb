@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :study_participation do
+    study nil
+  end
   factory :location do
     position "MyString"
   end
@@ -25,10 +28,10 @@ FactoryGirl.define do
     organization { Faker::University.name }
   end
   factory :participant, class: User do
-    first_name "MyString"
-    last_name "MyString"
+    first_name { Faker::Name.first_name }
+    last_name  { Faker::Name.last_name  }
     password "MyString"
-    email "MyString"
+    email { "Participant" + Faker::Internet.safe_email }
     participant_credential
   end
   factory :participant_credential do

@@ -6,7 +6,11 @@ class Snp < ActiveRecord::Base
   belongs_to :snppable, polymorphic: true
   accepts_nested_attributes_for :snp_value
 
-  def create_for_participant(snp_array)
-    
+  def self.create_snp(position, user)
+    service = SnpService.new(user.participant_credential.access_token, user)
+    bp = service.find_basepairs(position)
+    location = Location.find_by(position: position)
+    sv = SnpValue.where(base_pair: bp, location_id: location.id).first_or_create(base_pair: bp, location_id: location.id)
+    user.snps << create(snppable_type: "user", snppable_id: user.id, snp_value_id: sv.id)
   end
 end

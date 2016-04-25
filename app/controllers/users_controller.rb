@@ -3,9 +3,10 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.researcher?
       @studies = @user.studies
+      MatchMaker.generate_matches(@studies, User.participants)
       render "researcher/users/show"
     elsif @user.participant?
-      @matches = @user.matches unless @user.matches.nil?
+      MatchMaker.generate_matches("all", [@user])
       render "participants/users/show"
     else
       redirect_to root_path
