@@ -16,9 +16,7 @@ feature "researcher creates new study" do
     "Attention Deficit Hyperactivity Disorder (ADHD) often is genetic."
     find_field("snp-location-1").set("rs3094315")
     find_field("snp-bp-1").set("AA")
-
-    # find_field("snp-location-2").set("rs0023")
-    # find_field("snp-bp-2").set("II")
+    
     click_on "Submit new study"
 
     study = Study.last
