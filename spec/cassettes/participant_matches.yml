@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs3094315
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer b5f2f913bd561ca384241e230dd9d211
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 25 Apr 2016 03:14:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '45'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e9145525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d13bd19a9f7a0a2819bf5f417f31df4031461554090; expires=Tue, 25-Apr-17
+        03:14:50 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 298ea08ab1671171-DFW
+    body:
+      encoding: UTF-8
+      string: '{"rs3094315": "AA", "id": "b9e65773cfcdadfd"}'
+    http_version: 
+  recorded_at: Mon, 25 Apr 2016 03:14:50 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs23364
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer b5f2f913bd561ca384241e230dd9d211
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 25 Apr 2016 03:14:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6a45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=ddcfb8fae605227b63f56a07145c10b8e1461554091; expires=Tue, 25-Apr-17
+        03:14:51 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 298ea08e63e603e2-DFW
+    body:
+      encoding: UTF-8
+      string: '{"rs23364": "__", "id": "b9e65773cfcdadfd"}'
+    http_version: 
+  recorded_at: Mon, 25 Apr 2016 03:14:51 GMT
+recorded_with: VCR 3.0.1
