@@ -3,13 +3,15 @@
 <h2>Your Matching Studies</h2>
   <% if @user.study_participations %>
     <% @user.study_participations.each do | participation | %>
+    <% cache study_participations_cache("user-#{participation.id}") do %>
         <div class="study-<%= participation.study.id %>">
           <p><%= link_to participation.study.name, study_path(participation.study) %>
           <p><%= participation.study.user.researcher_credential.organization %>
           <p><%= participation.study.description %>
           <p>Based on your value of "<%= participation.study.snps.first.snp_value.base_pair %>"
             at the <%= participation.study.snps.first.snp_value.location.position %> position.
-      </div>
+        </div>
+    <% end %>
     <% end %>
   <% else %>
     <p>
