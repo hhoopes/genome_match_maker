@@ -23,4 +23,9 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#show"
   post "/researcher_signup", to: "researcher/users#create"
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_token]
+  Sidekiq::Web.set :sessions, Rails.application.config.session_options
 end
