@@ -7,19 +7,31 @@ namespace :import do
       positions = []
       CSV.foreach("data/partial_snps.csv", headers: true) do |row|
         entry = Location.new(position: row["snp"])
-          puts "Added #{row["index"]}" if row["index"].to_i % 10 == 0
-          positions << entry
+        positions << entry
+        if row["index"].to_i % 10 == 0
+          puts "Added #{row["index"]}"
+          Location.import positions
+          puts "Count: #{Location.count}"
+          positions = []
+        end
       end
       Location.import positions
+      puts "Final Count: #{Location.count}"
     end
 
-    desc "Import shortened snp location list"
-      task locations: :environment do
-        positions = []
-          CSV.foreach("data/full_snps.csv", headers: true) do |row|
-            positions << Location.new(position: row["snp"])
-            puts "Added #{row["index"]}" if row["index"].to_i % 100000 == 0
+  desc "Import all snp locations"
+    task locations: :environment do
+      positions = []
+        CSV.foreach("data/full_snps.csv", headers: true) do |row|
+          if row["index"].to_i % 10000 == 0
+            puts "Added ##{row["index"]}"
+            Location.import positions
+            positions = []
           end
-          import = Location.import positions
+          entry = Location.new(position: row["snp"])
+          positions << entry
+        end
+        Location.import positions
+        puts "Final Count: #{Location.count}"
       end
 end
