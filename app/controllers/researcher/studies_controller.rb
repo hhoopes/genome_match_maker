@@ -6,11 +6,9 @@ class Researcher::StudiesController < ApplicationController
 
   def create
     @researcher = current_user
-    @researcher.studies << Study.new(study_params)
+    @researcher.studies << Study.create(study_params)
     @study = Study.last
-    if @study.save
-      redirect_to dashboard_path
-    end
+    redirect_to dashboard_path
   end
 
   private

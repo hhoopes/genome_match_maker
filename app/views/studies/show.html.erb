@@ -1,3 +1,4 @@
+<% cache study_participations_cache("study") do %>
 <h1> <%= @study.name %></h1>
 <p><%= @study.user.researcher_credential.organization %>
 <p><%= @study.user.researcher_credential.description %>
@@ -15,4 +16,5 @@
       <%= link_to "(Email Anonymously)", "mailto:anonymized@example.com" %></li>
     <% end %>
   </ul>
+<% end %>
 <% end %>
