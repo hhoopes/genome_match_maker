@@ -23,7 +23,7 @@ namespace :import do
     task locations: :environment do
       positions = []
         CSV.foreach("data/full_snps.csv", headers: true) do |row|
-          # next if row["index"].to_i < 310000
+          next if row["index"].to_i < 600000
           if row["index"].to_i % 50000 == 0
             puts "Working on next batch from ##{row["index"]}"
             Location.import positions
