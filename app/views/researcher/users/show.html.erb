@@ -5,13 +5,23 @@
 
   <% if @studies.empty? %>
     <p><%= link_to "Create new study", new_researcher_study_path %>
+
   <% else %>
     <% @studies.each do | study | %>
       <div class="study-<%= study.id %>">
-        <p><%= study.name %> </p>
+        <p><%= link_to study.name, study_path(study.id) %> </p>
         <p><%= study.description %> </p>
         <p> <% study.snps.each do |snp| %>
           SNP Location: <%= snp.snp_value.location.position + " (#{snp.snp_value.base_pair})" %>
+          <% if study.study_participations.empty? %>
+            <p>
+              This study has no matching participants.
+            </p>
+          <% else %>
+            <p>
+              This study has matching participants.
+            </p>
+          <% end %>
         <% end %>
       </div>
     <% end %>

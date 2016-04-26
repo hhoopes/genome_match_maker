@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs3094315
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 17e90e60f90ffb9cbd73968c9e25dd5b
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 26 Apr 2016 02:38:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=da4617d06b38e2250d4b7da0d06e789361461638334; expires=Wed, 26-Apr-17
+        02:38:54 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 2996a948b8a51fbe-DFW
+    body:
+      encoding: UTF-8
+      string: '{"error_description": "Invalid token specified.", "error": "invalid_token"}'
+    http_version: 
+  recorded_at: Tue, 26 Apr 2016 02:38:54 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs41383248
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 17e90e60f90ffb9cbd73968c9e25dd5b
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 26 Apr 2016 02:38:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6e45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=dde472ce7e67176d6bc72f42275032abc1461638336; expires=Wed, 26-Apr-17
+        02:38:56 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 2996a955a6402635-DFW
+    body:
+      encoding: UTF-8
+      string: '{"error_description": "Invalid token specified.", "error": "invalid_token"}'
+    http_version: 
+  recorded_at: Tue, 26 Apr 2016 02:38:56 GMT
+recorded_with: VCR 3.0.1

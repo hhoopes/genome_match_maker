@@ -1,10 +1,18 @@
 <h1>Participant Dashboard</h1>
 
-<h2>Your Research Studies</h2>
-  <% @matches.each do | match | %>
-    <p><%= link_to match.name, study_path(match) %>
-    <p><%= match.user.researcher_credential.organization %>
-    <p><%= match.description %>
-    <p>Based on your value of "<%= match.snps.first.snp_value.base_pair %>"
-      at the <%= match.snps.first.snp_value.location.position %> position.
+<h2>Your Matching Studies</h2>
+  <% if @user.study_participations %>
+    <% @user.study_participations.each do | participation | %>
+        <div class="study-<%= participation.study.id %>">
+          <p><%= link_to participation.study.name, study_path(participation.study) %>
+          <p><%= participation.study.user.researcher_credential.organization %>
+          <p><%= participation.study.description %>
+          <p>Based on your value of "<%= participation.study.snps.first.snp_value.base_pair %>"
+            at the <%= participation.study.snps.first.snp_value.location.position %> position.
+      </div>
+    <% end %>
+  <% else %>
+    <p>
+      No studies are currently looking for your DNA.
+    </p>
   <% end %>
