@@ -41,7 +41,6 @@ namespace :import do
           positions = []
             CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
                 Location.create(position: row["snp"])
-              end
             end
           end
 end
