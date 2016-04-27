@@ -36,7 +36,7 @@ FactoryGirl.define do
   end
   factory :participant_credential do
     access_token ENV["ACCESS_TOKEN"]
-    refresh_token "MyString"
+    refresh_token ENV["REFRESH_TOKEN"]
     uid "b9e65773cfcdadfd"
   end
   factory :user do

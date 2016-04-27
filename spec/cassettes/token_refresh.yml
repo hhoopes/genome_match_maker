@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.23andme.com/token
+    body:
+      encoding: US-ASCII
+      string: client_id=fa14c16e8d247c33723730c697802dd9&client_secret=0ff970b94a7ccdd3f44f5490787ea788&grant_type=refresh_token&refresh_token=eac739f2eaf96ec682559402fb69c6a7&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fand_me%2Fcallback&scope=basic+email+genomes+names
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.23andme.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 27 Apr 2016 03:49:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6b45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d76755b5dc8e8d758df20329d8c5ca3341461728968; expires=Thu, 27-Apr-17
+        03:49:28 GMT; path=/; domain=.23andme.com; HttpOnly
+      Vary:
+      - Cookie
+      Cache-Control:
+      - no-store
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 299f4e04f9de2623-DFW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token": "ed40e8f309e11d5948538a01f5559d2f", "token_type":
+        "bearer", "expires_in": 86400, "refresh_token": "98613c3621391e3eadca9d686d2f5a36",
+        "scope": "genomes names email basic"}'
+    http_version: 
+  recorded_at: Wed, 27 Apr 2016 03:49:28 GMT
+recorded_with: VCR 3.0.1

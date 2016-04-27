@@ -22,15 +22,14 @@ namespace :import do
   desc "Import all snp locations"
     task locations: :environment do
       positions = []
-        CSV.foreach("data/full_snps.csv", headers: true) do |row|
-          next if row["index"].to_i < 600000
-          if row["index"].to_i % 50000 == 0
-            puts "Working on next batch from ##{row["index"]}"
-            Location.import positions
-            positions = []
-          end
+        CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
+          i = row["index"].to_i
+          next if i < 700000
           entry = Location.new(position: row["snp"])
           positions << entry
+          if i % 50000 == 0
+            puts "Loaded #{i}"
+          end
         end
         Location.import positions
         puts "Final Count: #{Location.count}"
@@ -39,8 +38,10 @@ namespace :import do
       desc "Import all snp locations for heroku"
         task locations_heroku: :environment do
           positions = []
-            CSV.foreach("data/full_snps.csv", headers: true) do |row|
-              Location.create(position: row["snp"])
+            CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
+              if row["id"].to_i > 249000
+                Location.create(position: row["snp"])
+              end
             end
           end
 end
