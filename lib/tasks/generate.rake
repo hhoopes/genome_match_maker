@@ -43,9 +43,7 @@ namespace :import do
         task locations_heroku: :environment do
           positions = []
             CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
-              if row["id"].to_i > 249000
                 Location.create(position: row["snp"])
-              end
             end
           end
 end
