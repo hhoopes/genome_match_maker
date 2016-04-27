@@ -41,7 +41,7 @@ RSpec.configure do |config|
   end
 
   def token_hash
-    {:refresh_token=>"98691b885b815696a64e86c6d2813a05", :access_token=> valid_token}
+    {:refresh_token=> refresh_token, :access_token=> valid_token}
   end
 
   def auth_response
@@ -50,6 +50,10 @@ RSpec.configure do |config|
 
   def valid_token
     ENV["ACCESS_TOKEN"]
+  end
+
+  def refresh_token
+    ENV["REFRESH_TOKEN"]
   end
 
   def log_in(user)
