@@ -16,6 +16,7 @@ gem 'responders', '~> 2.0'
 gem 'sidekiq'
 gem "sidekiq-cron", "~> 0.4.0"
 gem 'sinatra', :require => nil
+gem 'puma'
 
 group :development, :test do
   gem 'pry'
