@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  get "/about", to: "static_pages#about", as: "about"
 
   namespace :researcher do
     resources :users, only: [:new]

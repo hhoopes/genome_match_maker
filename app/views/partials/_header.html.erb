@@ -1,11 +1,12 @@
 <header>
   <div class="navbar navbar-top">
-    <div class="container">
-      <div class="navbar-brand">
-        <%= link_to "Genome Match Maker", root_path %>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("gmm-c_blue.gif"), root_path %>
       </div>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About This Project", about_path %></li>
 
           <% if current_user %>
             <li class ="navbar-text"> <%= "Welcome, " + current_user.full_name %></li>
