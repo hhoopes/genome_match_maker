@@ -1,0 +1,15 @@
+<h1>Browse Research Studies</h1>
+
+<% @studies.each do | study | %>
+  <div class= "<%= "studies study-#{study.id}" %>" >
+    <h3> <%= link_to study.name, study_path(study) %></h3>
+    <p> <%= study.user.researcher_credential.organization %></p>
+    <p> <%= study.description %></p>
+    <p>This group is studying the interactions of the
+      <% study.snps.each do |snp| %>
+        <%= snp.snp_value.base_pair %> mutation at the
+        <%= snp.snp_value.location.position %> position.
+      <% end %>
+    </p>
+  </div>
+<% end %>
