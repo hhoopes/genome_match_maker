@@ -3,4 +3,8 @@ class StudiesController < ApplicationController
     @study = Study.find(params[:id])
     MatchMaker.generate_matches([@study], User.participants)
   end
+
+  def index
+    @studies = Study.all 
+  end
 end
