@@ -28,9 +28,13 @@ namespace :import do
           entry = Location.new(position: row["snp"])
           positions << entry
           if i % 50000 == 0
+            puts "Starting to load..."
+            Location.import positions
             puts "Loaded #{i}"
+            positions = []
           end
         end
+        puts "Starting to load final batch..."
         Location.import positions
         puts "Final Count: #{Location.count}"
       end
