@@ -13,6 +13,10 @@ gem 'httparty'
 gem 'rails_12factor', group: :production
 gem 'activerecord-import', '~> 0.4.0'
 gem 'responders', '~> 2.0'
+gem 'sidekiq'
+gem "sidekiq-cron", "~> 0.4.0"
+gem 'sinatra', :require => nil
+gem 'puma'
 
 group :development, :test do
   gem 'pry'

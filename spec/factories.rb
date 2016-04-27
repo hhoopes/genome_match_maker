@@ -3,7 +3,7 @@ FactoryGirl.define do
     study nil
   end
   factory :location do
-    position "MyString"
+    sequence(:position) { |n| "rs10103#{n}" }
   end
   factory :snp_value do
     base_pair "MyString"
@@ -36,7 +36,7 @@ FactoryGirl.define do
   end
   factory :participant_credential do
     access_token ENV["ACCESS_TOKEN"]
-    refresh_token "MyString"
+    refresh_token ENV["REFRESH_TOKEN"]
     uid "b9e65773cfcdadfd"
   end
   factory :user do

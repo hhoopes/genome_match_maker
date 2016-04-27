@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: "static_pages#landing"
-  get "/auth/and_me/callback", to: "participant/users#create"
   delete "/logout", to: "sessions#destroy"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
@@ -11,17 +10,23 @@ Rails.application.routes.draw do
     resources :studies, only: [:new, :create]
   end
 
+  namespace :participant do
+    get "/auth/and_me/callback", to: "participant/users#create"
+  end
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       get "/verify_location/:id", to: "verify_location#show"
     end
   end
 
-  namespace :participants do
-  end
-
-  resources :studies, only: [:show]
+  resources :studies, only: [:show, :index]
 
   get "/dashboard", to: "users#show"
   post "/researcher_signup", to: "researcher/users#create"
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_token]
+  Sidekiq::Web.set :sessions, Rails.application.config.session_options
 end

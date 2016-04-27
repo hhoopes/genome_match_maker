@@ -1,0 +1,5 @@
+update_tokens:
+  cron: "32 * * * *"
+  class: "TokenRefresher"
+  queue: default
+  active_job: true
