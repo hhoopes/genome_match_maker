@@ -22,9 +22,8 @@ namespace :import do
   desc "Import all snp locations"
     task locations: :environment do
       positions = []
-        CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
+        CSV.foreach("data/full_snps.csv", headers: true) do |row|
           i = row["index"].to_i
-          next if i < 950000
           entry = Location.new(position: row["snp"])
           positions << entry
           if i % 50000 == 0
