@@ -1,18 +1,45 @@
 <div class="container">
-  <h1 class="text-center">Welcome to Genome Match Maker</h1>
-  <% unless current_user %>
-    <div class="signup-participant col-md-6">
-      <p class="text-center"><%= link_to "I am a participant",
-        "https://api.23andme.com/authorize/?redirect_uri=" + callback_host + "&response_type=code&client_id=" + client_id + "&scope=basic%20names%20email%20genomes" %></p>
-      <p class="text-center">Sign in with 23andMe</p>
-    </div>
-    <div class="signup-researcher col-md-6">
-      <p class="text-center"><%= link_to "I am a researcher", new_researcher_user_path %></p>
-    </div>
-    <div class="login col-md-12">
-      <p class="text-center">
-        <%= link_to "Log in with existing account", login_path %>
-      </p>
-    </div>
-  <% end %>
-</div>
+	<div class="row">
+		<div class="span12">
+		<div class="page-header">
+				<h1>
+				Genome Match Maker
+			</h1>
+		</div>
+		</div>
+	</div>
+
+  <div class="row">
+		<div class="span6 signup-participant">
+		<div class="media">
+      <%= image_tag "DNA.png", class: "pull-left media-object" %>
+				<div class="media-body">
+					<h3 class="media-heading">
+						Know your genome? Participate!
+					</h3>
+					<p>You've had your genome typed through direct-to-consumer services
+            like 23 and Me. But you're interested in learning more, and being a
+            part of the scientific process. Be a part of meaningful, relevant
+            scientific studies without exposing personal information.
+					</p>
+					<%= render partial: "partials/auth_link" %>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="span6 signup-researcher">
+  		<div class="media">
+        <%= image_tag "test_tubes.png", class: "pull-right media-object" %>
+				<div class="media-body">
+					<h3 class="media-heading">
+						Researcher? Find participants!
+					</h3 >
+					<p>You're a researcher in the biological sciences who's looking for a new
+            way to create blind, anonymous participant groups who have the genetic
+            mutations you need for your project. Find those users today.
+					</p>
+          <%= link_to "Create Researcher Account", new_researcher_user_path, class: "btn" %>
+        </div>
+			</div>
+		</div>

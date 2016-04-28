@@ -4,13 +4,21 @@
   <title>GenomeMatchMaker</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
   <meta name="viewport" content="width=device-width, initial-scale=1"></head>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
 <body>
   <%= render partial: "partials/header" %>
   <% flash.each do |type, message| %>
     <%= content_tag :div, message, class: "alert-#{type}" %>
   <% end %>
   <%= yield %>
+  <%= render partial: "partials/footer" %>
 
 </body>
   <%= javascript_include_tag 'application' %>

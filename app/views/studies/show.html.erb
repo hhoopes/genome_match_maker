@@ -1,20 +1,24 @@
-<% cache study_participations_cache("study") do %>
-<h1> <%= @study.name %></h1>
-<p><%= @study.user.researcher_credential.organization %>
-<p><%= @study.user.researcher_credential.description %>
-<p><%= @study.description %>
-<p>Based on the interactions of the <% @study.snps.each do |snp| %>
-  <%= snp.snp_value.base_pair %> mutation at the
-  <%= snp.snp_value.location.position %> position.
-<% end %>
+<div class="container">
 
-<% if current_user == @study.user %>
-  <h2>Participants ( <%= @study.study_participations.count %> total):</h2>
-  <ul>
-    <% @study.study_participations.each do | participation | %>
-      <li>Participant ID: <%= participation.user.id %>
-      <%= link_to "(Email Anonymously)", "mailto:anonymized@example.com" %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% cache study_participations_cache("study#{@study.id}") do %>
+  <h1> <%= @study.name %></h1>
+  <p><%= @study.user.researcher_credential.organization %>
+  <p><%= @study.user.researcher_credential.description %>
+  <p><%= @study.description %>
+  <p>Based on the interactions of the <% @study.snps.each do |snp| %>
+    <%= snp.snp_value.base_pair %> mutation at the
+    <%= snp.snp_value.location.position %> position.
+  <% end %>
+
+  <% if current_user == @study.user %>
+    <h2>Participants ( <%= @study.study_participations.count %> total):</h2>
+    <ul>
+      <% @study.study_participations.each do | participation | %>
+        <li>Participant ID: <%= participation.user.id %>
+        <%= link_to "(Email Anonymously)", "mailto:anonymized@example.com" %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
 <% end %>

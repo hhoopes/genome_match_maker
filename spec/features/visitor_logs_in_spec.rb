@@ -6,9 +6,9 @@ feature "Visitor logs in" do
 
     visit "/"
     expect(page).not_to have_content("Welcome, #{user.full_name}")
-    expect(page).to have_content("Sign in with 23andMe")
+    expect(page).to have_content("Sign Up")
 
-    click_on "Log in with existing account"
+    click_on "Log In"
 
     expect(page).to have_content("Log In to Genome Match Maker")
     fill_in "Email", with: user.email
@@ -22,7 +22,7 @@ feature "Visitor logs in" do
   scenario "wrong password rerenders login page" do
     visit "/"
 
-    click_on "Log in with existing account"
+    click_on "Log In"
 
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "wrongpassword"

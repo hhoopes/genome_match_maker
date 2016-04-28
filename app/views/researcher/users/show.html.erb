@@ -1,33 +1,61 @@
-<div class="container researcher">
-  <h1>Researcher Dashboard</h1>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+    <div class="page-header">
+        <h1>
+        Researcher Dashboard
+      </h1>
+    </div>
+    </div>
+  </div>
 
-  <h2>Your Studies</h2>
+  <h2><%= link_to "Create new study", new_researcher_study_path %></h2>
+   <div class="hr-divider"></div>
 
-  <p><%= link_to "Create new study", new_researcher_study_path %>
+   <div class="row">
+   	<div class="span12 researcher">
+      <h2>Your Research Matches</h2>
 
-  <% if @studies.empty? %>
-    You have no studies currently.
-  <% else %>
-    <% @studies.each do | study | %>
-      <div class="study-<%= study.id %>">
-        <p><%= link_to study.name, study_path(study.id) %> </p>
-        <p><%= study.description %> </p>
-        <p> <% study.snps.each do |snp| %>
-          SNP Location: <%= snp.snp_value.location.position + " (#{snp.snp_value.base_pair})" %>
+      <ul class="thumbnails">
+        <% if @studies.empty? %>
+        <div class="thumbnail">
+          <li class="col-md-4">
+            <h3>You have no studies currently.</h3>
+          </li>
+        </div>
 
-          <% cache study_participations_cache("researcher-#{study.id}-#{snp.id}") do %>
-          <% if study.study_participations.empty? %>
-            <p>
-              This study has no matching participants.
-            </p>
-          <% else %>
-            <p>
-              This study has matching participants.
-            </p>
-          <% end %>
-          <% end %>
+        <% else %>
+          <% @studies.each do | study | %>
+            <div class="study-<%= study.id %>">
+              <li class="span4">
+                <div class="thumbnail">
+                  <h3><%= link_to study.name, study_path(study) %></h3>
+                  <div class="caption">
+
+                    <p> <% study.snps.each do |snp| %>
+                      <% cache study_participations_cache("researcher-#{study.id}-#{snp.id}") do %>
+                      <strong>SNP Location: <%= snp.snp_value.location.position + " / #{snp.snp_value.base_pair}" %></strong>
+                    <% end %>
+
+                    <p><%= study.description %></p>
+
+                    <% if study.study_participations.empty? %>
+                      <p>
+                        This study has no matching participants.
+                      </p>
+                    <% else %>
+                      <p>
+                        This study has matching participants.
+                      </p>
+                    <% end %>
+                  </div>
+              </div>
+            </li>
+          </div>
         <% end %>
-      </div>
-    <% end %>
-  <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
 </div>

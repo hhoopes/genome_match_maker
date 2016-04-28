@@ -24,7 +24,7 @@ namespace :import do
       positions = []
         CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
           i = row["index"].to_i
-          next if i < 700000
+          next if i < 950000
           entry = Location.new(position: row["snp"])
           positions << entry
           if i % 50000 == 0
