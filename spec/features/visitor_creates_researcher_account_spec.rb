@@ -4,7 +4,7 @@ feature "Visitor can register as researcher" do
   scenario "they are redirected to dashboard" do
     visit '/'
     within(".signup-researcher") do
-      click_on "I am a researcher"
+      click_on "Create Researcher Account"
     end
 
     fill_in "First name", with: "Sally"

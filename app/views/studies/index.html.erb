@@ -1,15 +1,51 @@
-<h1>Browse Research Studies</h1>
-
-<% @studies.each do | study | %>
-  <div class= "<%= "studies study-#{study.id}" %>" >
-    <h3> <%= link_to study.name, study_path(study) %></h3>
-    <p> <%= study.user.researcher_credential.organization %></p>
-    <p> <%= study.description %></p>
-    <p>This group is studying the interactions of the
-      <% study.snps.each do |snp| %>
-        <%= snp.snp_value.base_pair %> mutation at the
-        <%= snp.snp_value.location.position %> position.
-      <% end %>
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+    <div class="page-header">
+        <h1>
+        Browse Research Studies
+      </h1>
+    </div>
+    </div>
   </div>
-<% end %>
+  <% cache "study_index_cache-#{Study.maximum(:updated_at)}-#{Study.count}" do %>
+
+   <div class="row">
+   	<div class="span12">
+      <ul class="thumbnails">
+        <% if @studies.empty? %>
+        <div class="thumbnail">
+          <li class="col-md-4">
+            <h3>Currently no studies have been created.</h3>
+          </li>
+        </div>
+
+        <% else %>
+
+          <% @studies.each do | study | %>
+            <div class= '<%= "studies study-#{study.id}" %>' >
+              <li class="span4">
+                <div class="thumbnail">
+                  <h3><%= link_to study.name, study_path(study) %></h3>
+                  <div class="caption">
+                    <p> <strong><%= study.user.researcher_credential.organization %></strong>
+                      / Dr. <%= study.user.full_name %></p>
+                    <p> <%= study.description %></p>
+
+                    <p>This group is studying the interactions of the
+                    <% study.snps.each do |snp| %>
+                      <strong><%= snp.snp_value.base_pair %></strong> mutation at the
+                      <strong><%= snp.snp_value.location.position %> </strong>position.
+                    <% end %>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</div>

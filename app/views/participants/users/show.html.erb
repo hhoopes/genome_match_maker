@@ -1,20 +1,45 @@
-<h1>Participant Dashboard</h1>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+    <div class="page-header">
+        <h1>
+        Participant Dashboard
+      </h1>
+    </div>
+    </div>
+  </div>
 
-<h2>Your Matching Studies</h2>
-  <% if @user.study_participations %>
-    <% @user.study_participations.each do | participation | %>
-    <% cache study_participations_cache("user-#{participation.id}") do %>
-        <div class="study-<%= participation.study.id %>">
-          <p><%= link_to participation.study.name, study_path(participation.study) %>
-          <p><%= participation.study.user.researcher_credential.organization %>
-          <p><%= participation.study.description %>
-          <p>Based on your value of "<%= participation.study.snps.first.snp_value.base_pair %>"
-            at the <%= participation.study.snps.first.snp_value.location.position %> position.
-        </div>
-    <% end %>
-    <% end %>
-  <% else %>
-    <p>
-      No studies are currently looking for your DNA.
-    </p>
-  <% end %>
+   <div class="hr-divider"></div>
+
+   <div class="row">
+   	<div class="span12 participant">
+
+      <h2>Your Genome Matches</h2>
+      <% if @user.has_matches? %>
+        <ul class="thumbnails">
+          <% @user.study_participations.each do | participation | %>
+            <% cache study_participations_cache("user-#{participation.id}") do %>
+              <div class="study-<%= participation.study.id %>">
+                <li class="span4">
+                  <div class="thumbnail">
+                    <h3><%= link_to participation.study.name, study_path(participation.study) %></h3>
+                    <div class="caption">
+                      <strong><%= participation.study.user.researcher_credential.organization %></strong>
+                      <p><%= participation.study.description %></p>
+                      <p>Based on your value of "<%= participation.study.snps.first.snp_value.base_pair %>"
+                        at the <%= participation.study.snps.first.snp_value.location.position %> position.
+                    </div>
+                  </div>
+                </li>
+              </div>
+          <% end %>
+        <% end %>
+      </ul>
+      <% else %>
+        <p>
+          No studies currently use your genetic variants.
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

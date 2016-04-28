@@ -12,6 +12,6 @@ feature "User logs out" do
 
     expect(current_path).to eq("/")
     expect(page).not_to have_content("Welcome, #{user.full_name}")
-    expect(page).to have_content("Sign in with 23andMe")
+    expect(page).to have_content("Log In")
   end
 end

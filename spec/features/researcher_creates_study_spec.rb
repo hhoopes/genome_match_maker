@@ -16,18 +16,16 @@ feature "researcher creates new study" do
     "Attention Deficit Hyperactivity Disorder (ADHD) often is genetic."
     find_field("snp-location-1").set("rs3094315")
     find_field("snp-bp-1").set("AA")
-    
+
     click_on "Submit new study"
 
     study = Study.last
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Your Studies")
+    expect(current_path).to eq(study_path(study))
+    expect(page).to have_content("Your Research Studies")
 
-    within("div.study-#{study.id}") do
-      expect(page).to have_content("ADHD Genetic Research Study")
-      expect(page).to have_content(study.description)
-      expect(page).to have_content("rs3094315")
-      expect(page).to have_content("AA")
-    end
+    expect(page).to have_content("ADHD Genetic Research Study")
+    expect(page).to have_content(study.description)
+    expect(page).to have_content("rs3094315")
+    expect(page).to have_content("AA")
   end
 end

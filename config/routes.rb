@@ -4,14 +4,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   get "/about", to: "static_pages#about", as: "about"
+  get "/auth/and_me/callback", to: "participant/users#create"
 
   namespace :researcher do
     resources :users, only: [:new]
     resources :studies, only: [:new, :create]
-  end
-
-  namespace :participant do
-    get "/auth/and_me/callback", to: "participant/users#create"
   end
 
   namespace :api, defaults: { format: :json } do

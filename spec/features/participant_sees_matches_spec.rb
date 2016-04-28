@@ -17,7 +17,7 @@ feature "Participant sees matches" do
       log_in(participant)
       visit dashboard_path
 
-      expect(page).to have_content("Your Matching Studies")
+      expect(page).to have_content("Your Genome Matches")
 
       within("div.study-#{matching_study.id}") do
         expect(page).to have_content(matching_study.name)

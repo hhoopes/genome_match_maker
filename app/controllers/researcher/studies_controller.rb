@@ -8,7 +8,7 @@ class Researcher::StudiesController < ApplicationController
     @researcher = current_user
     @researcher.studies << Study.create(study_params)
     @study = Study.last
-    redirect_to dashboard_path
+    redirect_to study_path(@study)
   end
 
   private

@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     researcher_credential != nil
   end
 
+  def has_matches?
+    study_participations.count > 0 
+  end
+
   def full_name
     first_name.capitalize + " " + last_name.capitalize
   end
