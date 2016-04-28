@@ -15,4 +15,4 @@
 * In development running with Sidekiq-cron to update access tokens
 * Internal API to check whether DNA SNPs are valid when a researcher creates a new study, responds with AJAX-driven feedback
 
-### (Initial MVP for project:)[https://gist.github.com/hhoopes/1f270f751aa8aa6836d1a093744bafa0]
+### [Initial MVP for project:](https://gist.github.com/hhoopes/1f270f751aa8aa6836d1a093744bafa0)
