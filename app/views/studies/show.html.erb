@@ -13,13 +13,13 @@
   <% end %>
 
   <% if current_user == @study.user %>
-    <h2>Participants ( <%= @study.study_participations.count %> total):</h2>
     <ul>
-      <% @study.study_participations.each do | participation | %>
+      <h2>Participants ( <%= @study.study_participations.count %> total):</h2>
+        <% @study.study_participations.each do | participation | %>
         <li>Participant ID: <%= participation.user.id %>
         <%= link_to "(Email Anonymously)", "mailto:anonymized@example.com" %></li>
+      <% end %>
     </ul>
-  <% end %>
 </div>
 
 <% end %>

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :snps, as: :snppable
   has_many :snp_values, through: :snps
   validates :email, presence: true
-  has_many :study_participations
+  has_many :study_participations, dependent: :destroy
 
   scope :participants, -> { joins(:participant_credential) }
   scope :researchers, -> { joins(:researcher_credential) }
@@ -29,10 +29,10 @@ class User < ActiveRecord::Base
   end
 
   def has_matches?
-    study_participations.count > 0 
+    study_participations.count > 0
   end
 
   def full_name
-    first_name.capitalize + " " + last_name.capitalize
+    first_name.capitalize + " " + last_name.capitalize.gsub("phd", "PhD")
   end
 end
