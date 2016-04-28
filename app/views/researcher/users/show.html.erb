@@ -14,7 +14,7 @@
 
    <div class="row">
    	<div class="span12 researcher">
-      <h2>Your Research Matches</h2>
+      <h2>Your Research Studies</h2>
 
       <ul class="thumbnails">
         <% if @studies.empty? %>
@@ -37,15 +37,15 @@
                       <strong>SNP Location: <%= snp.snp_value.location.position + " / #{snp.snp_value.base_pair}" %></strong>
                     <% end %>
 
-                    <p><%= study.description %></p>
+                    <p>Description: <%= study.description %></p>
 
                     <% if study.study_participations.empty? %>
                       <p>
-                        This study has no matching participants.
+                        <strong>This study has no matching participants.</strong>
                       </p>
                     <% else %>
                       <p>
-                        This study has matching participants.
+                        <strong> <%= pluralize(study.study_participations.count, "matching participant") %></strong>
                       </p>
                     <% end %>
                   </div>

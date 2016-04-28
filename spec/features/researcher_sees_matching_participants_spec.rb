@@ -18,7 +18,7 @@ feature "researcher visits their dashboard" do
 
       within("div.study-#{matching_study.id}") do
         expect(page).to have_content(matching_study.name)
-        expect(page).to have_content("This study has matching participants")
+        expect(page).to have_content("1 matching participant")
         expect(page).to have_content("rs3094315")
         expect(page).to have_content("AA")
         expect(page).to have_link(matching_study.name, study_path(matching_study))

@@ -24,13 +24,13 @@
 
           <% @studies.each do | study | %>
             <div class= '<%= "studies study-#{study.id}" %>' >
-              <li class="span4">
+              <li class="span3">
                 <div class="thumbnail">
                   <h3><%= link_to study.name, study_path(study) %></h3>
                   <div class="caption">
                     <p> <strong><%= study.user.researcher_credential.organization %></strong>
                       / Dr. <%= study.user.full_name %></p>
-                    <p> <%= study.description %></p>
+                    <p> Description: <%= study.description %></p>
 
                     <p>This group is studying the interactions of the
                     <% study.snps.each do |snp| %>

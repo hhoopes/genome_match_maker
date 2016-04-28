@@ -11,6 +11,6 @@ class Snp < ActiveRecord::Base
     bp = service.find_basepairs(position)
     location = Location.find_by(position: position)
     sv = SnpValue.where(base_pair: bp, location_id: location.id).first_or_create(base_pair: bp, location_id: location.id)
-    user.snps << create(snppable_type: "user", snppable_id: user.id, snp_value_id: sv.id)
+    user.snps << where(snppable_type: "user", snppable_id: user.id, snp_value_id: sv.id).first_or_create
   end
 end

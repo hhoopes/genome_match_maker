@@ -18,6 +18,6 @@ class Researcher::StudiesController < ApplicationController
         snps_attributes:[:snppable_type, :snppable_id,
           snp_value_attributes: [:base_pair,
             location_attributes:[:position]
-          ]])
+      ]])
     end
 end

@@ -4,10 +4,12 @@
   <h1> <%= @study.name %></h1>
   <p><%= @study.user.researcher_credential.organization %>
   <p><%= @study.user.researcher_credential.description %>
-  <p><%= @study.description %>
-  <p>Based on the interactions of the <% @study.snps.each do |snp| %>
-    <%= snp.snp_value.base_pair %> mutation at the
-    <%= snp.snp_value.location.position %> position.
+  <p>Description: <%= @study.description %>
+  <p>Based on the interactions of the
+  <% @study.snps.each do |snp| %>
+    <strong><%= snp.snp_value.base_pair %> mutation</strong> at the
+    <strong><%= snp.snp_value.location.position %></strong> position.
+  <% end %>
   <% end %>
 
   <% if current_user == @study.user %>
@@ -16,7 +18,6 @@
       <% @study.study_participations.each do | participation | %>
         <li>Participant ID: <%= participation.user.id %>
         <%= link_to "(Email Anonymously)", "mailto:anonymized@example.com" %></li>
-      <% end %>
     </ul>
   <% end %>
 </div>
