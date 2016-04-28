@@ -18,6 +18,7 @@ gem "sidekiq-cron", "~> 0.4.0"
 gem 'sinatra', :require => nil
 gem 'puma'
 gem 'faker'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'pry'
