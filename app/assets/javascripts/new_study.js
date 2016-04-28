@@ -5,7 +5,7 @@ $(document).ready(function(){
 function verifyLocation(){
   var location = $("#snp-location-1").val();
   $.ajax({
-    url: "http://genomematchmaker.herokuapp.com/api/v1/verify_location/" + location,
+    url: "/api/v1/verify_location/" + location,
     method: "GET",
     dataType: "json",
     success: function(validity){
