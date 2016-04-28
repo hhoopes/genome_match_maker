@@ -13,7 +13,11 @@ class MatchMaker
 
   def self.study_matches(study, user)
     if user.participant?
-      all_studies = Study.find(Snp.where(snppable_type: "Study", snppable_id: study.id).where(snp_value_id: user.snps.pluck(:snp_value_id)).pluck(:snppable_id))
+      all_studies =
+        Study.find(
+        Snp.where(snppable_type: "Study", snppable_id: study.id)
+        .where(snp_value_id: user.snps
+        .pluck(:snp_value_id)).pluck(:snppable_id))
 
       StudyParticipation.add_participation(all_studies, user)
     end

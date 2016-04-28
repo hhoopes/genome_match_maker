@@ -1,5 +1,5 @@
 class StudyParticipation < ActiveRecord::Base
-  belongs_to :study
+  belongs_to :study, dependent: :destroy
   belongs_to :user
 
   def self.add_participation(study_array, participant)
