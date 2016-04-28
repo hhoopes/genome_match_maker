@@ -26,7 +26,7 @@
 
         <% else %>
           <% @studies.each do | study | %>
-          <% cache study_participations_cache("researcher-#{study.id}) do %>
+          <% cache study_participations_cache("researcher-#{study.id}") do %>
 
             <div class="study-<%= study.id %>">
               <li class="span4">
