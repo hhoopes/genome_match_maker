@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs103
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 6f65d7561910f4512cea38898a071954
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 28 Apr 2016 14:09:20 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=dd86af9e47d136064d6609219794e52bc1461852559; expires=Fri, 28-Apr-17
+        14:09:19 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 29ab1762b2a2094a-DFW
+    body:
+      encoding: UTF-8
+      string: '{"rs103": "__", "id": "b9e65773cfcdadfd"}'
+    http_version: 
+  recorded_at: Thu, 28 Apr 2016 14:09:19 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs103
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 6f65d7561910f4512cea38898a071954
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 28 Apr 2016 14:09:20 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e6f45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=de151a48ff21c5c798723be3b3227b6491461852560; expires=Fri, 28-Apr-17
+        14:09:20 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 29ab176858701183-DFW
+    body:
+      encoding: UTF-8
+      string: '{"rs103": "__", "id": "b9e65773cfcdadfd"}'
+    http_version: 
+  recorded_at: Thu, 28 Apr 2016 14:09:20 GMT
+- request:
+    method: get
+    uri: https://api.23andme.com/1/genotypes/b9e65773cfcdadfd/?locations=rs103
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 6f65d7561910f4512cea38898a071954
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 28 Apr 2016 14:09:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_bqj-wjq-ttm=ffffffff09090e9045525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - __cfduid=d0d777e97b0a99652b790e2a48ce86dc31461852561; expires=Fri, 28-Apr-17
+        14:09:21 GMT; path=/; domain=.23andme.com; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 29ab176d19552030-DFW
+    body:
+      encoding: UTF-8
+      string: '{"rs103": "__", "id": "b9e65773cfcdadfd"}'
+    http_version: 
+  recorded_at: Thu, 28 Apr 2016 14:09:20 GMT
+recorded_with: VCR 3.0.1
