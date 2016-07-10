@@ -17,10 +17,10 @@
       <h2>Studies Matching Your Genome</h2>
       <% if @user.has_matches? %>
         <ul class="thumbnails">
-          <% @user.study_participations.each do | participation | %>
+          <% @user.study_participations.each_with_index do | participation, i | %>
             <% cache study_participations_cache("user-#{participation.id}") do %>
-              <div class="study-<%= participation.study.id %>">
-                <li class="span4">
+              <div class="col-md-4 study-<%= participation.study.id %>">
+                <li>
                   <div class="thumbnail">
                     <h3><%= link_to participation.study.name, study_path(participation.study) %></h3>
                     <div class="caption">
@@ -32,6 +32,9 @@
                   </div>
                 </li>
               </div>
+              <% if i % 3 == 2  %>
+                <div class="clearfix"></div>
+              <% end %>
           <% end %>
         <% end %>
       </ul>

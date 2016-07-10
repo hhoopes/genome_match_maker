@@ -25,11 +25,11 @@
         </div>
 
         <% else %>
-          <% @studies.each do | study | %>
+          <% @studies.each_with_index do | study, i | %>
           <% cache study_participations_cache("researcher-#{study.id}") do %>
 
-            <div class="study-<%= study.id %>">
-              <li class="span4">
+            <div class="col-md-4 study-<%= study.id %>">
+              <li>
                 <div class="thumbnail">
                   <h3><%= link_to study.name, study_path(study) %></h3>
           <% end %>
@@ -55,6 +55,9 @@
               </div>
             </li>
           </div>
+          <% if i % 3 == 2  %>
+            <div class="clearfix"></div>
+          <% end %>
         <% end %>
         <% end %>
       <% end %>
