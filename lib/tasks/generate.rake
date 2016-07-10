@@ -38,11 +38,16 @@ namespace :import do
         puts "Final Count: #{Location.count}"
       end
 
-      desc "Import all snp locations for heroku"
-        task locations_heroku: :environment do
-          positions = []
-            CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
-                Location.create(position: row["snp"])
-            end
-          end
+  desc "Import all snp locations for heroku"
+  task locations_heroku: :environment do
+    positions = []
+    count = 0
+    CSV.foreach("data/heroku_snps.csv", headers: true) do |row|
+      return if count == 9000
+      puts count 
+      puts Location.count
+      count += 1
+      Location.create(position: row["snp"])
+    end
+  end
 end
