@@ -5,6 +5,7 @@ class StudiesController < ApplicationController
   end
 
   def index
-    @studies = Study.all 
+    @studies = Study.all
+    # binding.pry
   end
 end

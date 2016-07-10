@@ -8,7 +8,7 @@
     </div>
     </div>
   </div>
-  <% cache "study_index_cache-#{Study.maximum(:updated_at)}-#{Study.count}" do %>
+  <!-- <% cache "study_index_cache-#{Study.maximum(:updated_at)}-#{Study.count}" do %> -->
 
    <div class="row">
    	<div class="span12">
@@ -22,9 +22,9 @@
 
         <% else %>
 
-          <% @studies.each do | study | %>
-            <div class= '<%= "studies study-#{study.id}" %>' >
-              <li class="span3">
+          <% @studies.each_with_index do | study, i | %>
+            <div class= 'col-md-4 <%= "studies study-#{study.id}" %>' >
+              <li class="">
                 <div class="thumbnail">
                   <h3><%= link_to study.name, study_path(study) %></h3>
                   <div class="caption">
@@ -42,6 +42,9 @@
                 </div>
               </li>
             </div>
+            <% if i % 3 == 2  %>
+              <div class="clearfix"></div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
