@@ -2,6 +2,12 @@
 
 ### Live in production: [Genome Match Maker](http://genomematchmaker.herokuapp.com)
 
+### Genome Match Maker utilizes 23 and Me's API to pair two types of users in today's genetic marketplace: participants who have had their genome typed through 23 and Me and researchers who would like to create an anonymous research pool based around a certain genetic mutation. Currently researchers rely on referrals from doctors and advertisements then must genotype patients for confirmation, but the number of people using 3rd party genetic typing is increasing and provides another source for these two parties to find each other.
+
+23 and Me's API provides access to over a million SNPs (genetic mutations), both their locations and the mutation found at that point, and my app coordinates that information with two types of users. Hence, the resulting database has a complexity not just from its size but also from its schema.
+
+In production, this app relies on Sidekiq and Redis to Go to provide support. Authentication was written by hand without aid of a gem. The entire app prototype was created over the course of less than two weeks.
+
 ### To setup this project:
 
 * Set up the database, minus seeding
