@@ -4,6 +4,6 @@ module AuthHelper
   end
 
   def callback_host
-    ENV["callback_host"]
+    ENV["callback_host"] || "http://localhost:3000/auth/and_me/callback"
   end
 end
