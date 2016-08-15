@@ -1,10 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="page-header">
+        <h1>Change Password</h1>
+        <%= form_for(@user) do |f| %>
+          <p><%= f.label :password, "New password" %>
+          <%= f.password_field :password %>
 
-<%= form_for(@user) do |f| %>
-  <p><%= f.label :password, "New password" %>
-  <%= f.password_field :password %>
+          <p><%= f.label :password_confirmation, "Confirm new password" %>
+          <%= f.password_field :password_confirmation %>
 
-  <p><%= f.label :password_confirmation, "Confirm new password" %>
-  <%= f.password_field :password_confirmation %>
-
-  <p><%= f.submit "Submit"  %>
-<% end %>
+          <p><%= f.submit "Submit"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
