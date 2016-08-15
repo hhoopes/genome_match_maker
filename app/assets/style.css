@@ -112,8 +112,8 @@ Carousel
 .hr-divider{
 	background: url(../img/slide-bg.png) no-repeat bottom center;
 	width:1170px;
-	height: 100px;
-	margin-bottom: 50px;
+	height: 10px;
+	margin-bottom: 5px;
 	display: block;
 	clear: both;}
 
