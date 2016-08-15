@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   has_many :studies
   has_many :snps, as: :snppable
   has_many :snp_values, through: :snps
-  validates :email, presence: true
   has_many :study_participations, dependent: :destroy
+  validates :email, presence: true
+  validates :password, confirmation: true
 
   scope :participants, -> { joins(:participant_credential) }
   scope :researchers, -> { joins(:researcher_credential) }

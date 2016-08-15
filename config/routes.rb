@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/about", to: "static_pages#about", as: "about"
   get "/auth/and_me/callback", to: "participant/users#create"
 
+  resources :users, only: [:edit, :update, :delete]
+  
   namespace :researcher do
     resources :users, only: [:new]
     resources :studies, only: [:new, :create]
