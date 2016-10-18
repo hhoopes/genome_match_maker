@@ -6,7 +6,7 @@ class Researcher::StudiesController < ApplicationController
 
   def create
     @researcher = current_user
-    @researcher.studies << Study.create(study_params)
+    @researcher.studies << StudyService.create_study(study_params)
     @study = Study.last
     redirect_to study_path(@study)
   end

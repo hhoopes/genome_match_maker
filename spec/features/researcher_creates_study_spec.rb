@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "researcher creates new study" do
   scenario "and they see their new study on their dashboard" do
+    Location.create(position: "rs3094315")
     researcher = create(:researcher)
     log_in(researcher)
 

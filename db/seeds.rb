@@ -63,10 +63,11 @@
   "Polymerase activity and multinucleotide mutations in humans",
   "Genetic Variation of Diabetes-Associated Misfolded Human Proinsulin",
 ]
-
+location_total = Location.count
 3.times do
-  id = Random.rand(1..2000)
+  # use the same Location for a whole set of studies to ensure matching at a point on the user
   @base_pairs.each do | base_pair |
+    id = Random.rand(1..location_total)
       study = Study.create(
         description: Faker::Lorem.paragraph,
         name: @titles.shuffle.first

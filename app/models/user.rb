@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :studies
   has_many :snps, as: :snppable
   has_many :snp_values, through: :snps
+  has_many :locations, through: :snp_values
   has_many :study_participations, dependent: :destroy
   validates :email, presence: true
   validates :password, confirmation: true

@@ -1,5 +1,5 @@
 class SnpValue < ActiveRecord::Base
-  has_many :snps
+  has_many :snps, dependent: :destroy
   belongs_to :location
   has_many :studies, through: :snps, source: :snppable, source_type: "Study"
   has_many :users, through: :snps, source: :snppable, source_type: "User"

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       MatchMaker.generate_matches(@studies, User.participants)
       render "researcher/users/show"
     elsif @user.participant?
-      MatchMaker.generate_matches("all", [@user])
+      MatchMaker.generate_matches(Study.all, [@user])
       render "participants/users/show"
     else
       redirect_to root_path

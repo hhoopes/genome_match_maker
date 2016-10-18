@@ -7,7 +7,7 @@ class AndMeAuthService
     end
     token_response = {}
     response = Net::HTTP.post_form(URI("https://api.23andme.com/token"), params).body
-# binding.pry
+
     parsed  = JSON.parse(response)
     token_response[:refresh_token]   = parsed["refresh_token"]
     token_response[:access_token]    = parsed["access_token"]

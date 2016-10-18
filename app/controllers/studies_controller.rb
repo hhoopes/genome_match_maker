@@ -6,6 +6,5 @@ class StudiesController < ApplicationController
 
   def index
     @studies = Study.all
-    # binding.pry
   end
 end
